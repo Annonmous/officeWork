@@ -12,7 +12,7 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
-import { padding } from '@mui/system';
+import Logo from '../assets/Tickt.svg'
 
 const Navbar = () => {
 
@@ -39,12 +39,13 @@ const Navbar = () => {
   };
 
   return (
-    <AppBar position="absolute" sx={{ backgroundColor: "white", color: "black" }}>
+    <AppBar position="absolute" sx={{ backgroundColor: "White", color: "black" }}>
       <Container maxWidth="xl">
         <Toolbar >
-          <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
+          {/* <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} /> */}
+          <img src={Logo} sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
 
-          <Box sx={{ flexGrow: { xs: 0, lg: 1 } }} />
+          <Box sx={{ flexGrow: { xs: 0, lg: 1, md:1 } }} />
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
             <IconButton
               size="large"
@@ -83,7 +84,8 @@ const Navbar = () => {
             </Menu>
           </Box>
 
-          <AdbIcon sx={{ display: { xs: 'none', md: 'none' }, mr: 1 }} />
+          {/* <AdbIcon sx={{ display: { xs: 'none', md: 'none' }, mr: 1 }} /> */}
+          <img src={Logo} sx={{ display: { xs: 'none', md: 'none' }, mr: 1 }}/>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {pages.map((page) => (
               <Button

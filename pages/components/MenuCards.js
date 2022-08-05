@@ -24,7 +24,7 @@ const MenuCards = () => {
     ]
     return (
         <>
-        <Box mt={11}>
+        <Box mt={15}>
             <Stack direction={"row"} spacing={2}  >
                 {arr.map((item) => {
                     return (
