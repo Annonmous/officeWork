@@ -2,56 +2,55 @@ import { Avatar, Card, CardContent, Grid, Paper, Stack, Typography } from '@mui/
 import { Box } from '@mui/system'
 import React from 'react'
 import MyEvents from './MyEvents'
-import Navbar from './Navbar'
+
 
 const MenuCards = () => {
     // const lightTheme = createTheme({ palette: { mode: 'light' } });
     const arr = [{
-        icon: <Avatar />,
+        icon: <Avatar sx={{width:58,height:58}} />,
         label: "Total Tickets",
-        des: "230 Tickets"
+        des: "230$ Tickets"
     },
     {
-        icon: <Avatar />,
+        icon: <Avatar sx={{width:58,height:58}}/>,
         label: "Total Events",
         des: "150 "
     },
     {
-        icon: <Avatar />,
+        icon: <Avatar sx={{width:58,height:58}} />,
         label: "Reservation",
         des: "150 "
     }
     ]
     return (
         <>
-        <Box mt={15}>
-            <Stack direction={"row"} spacing={2}  >
-                {arr.map((item) => {
-                    return (
-                        <Card>
+            <Box sx={{ mt: 15, width: '100%' }}>
+                <Stack direction={{ xs: 'column', md: 'row' }} spacing={2}  >
+                    {arr.map((item) => {
+                        return (
+                            <Card width={{ md: '250px', lg: "300px" }} sx={{ padding: "25px", borderRadius: "10px", boxShadow: "0px 4px 8px 4% black" }}>
+                                <CardContent  >
+                                    <Stack direction={"row"} spacing={1}>
+                                        {item.icon}
 
-                            <CardContent  >
-                                <Stack direction={"row"} spacing={2} sx={{ml:2}}>
-                                {item.icon}
-                               
-                                    <Stack direction={"column"} spacing={1}>
-                                <Typography>
-                                    {item.label}
-                                </Typography>
-                                
-                                <Typography >
-                                    {item.des}
-                                </Typography>
+                                        <Stack direction={"column"} spacing={1}>
+                                            <Typography variant="h5" color="text.primary" sx={{ fontWeight: 'bold', fontFamily: "Inter" }}>
+                                                {item.label}
+                                            </Typography>
+
+                                            <Typography variant="h6" color="text.primary" sx={{ fontWeight: "bolder", fontFamily: "Inter" }}>
+                                                {item.des}
+                                            </Typography>
+                                        </Stack>
                                     </Stack>
-                                </Stack>
-                            </CardContent>
-                        </Card>
-                    )
-                })}
-            </Stack>        
-        </Box>
+                                </CardContent>
+                            </Card>
+                        )
+                    })}
+                </Stack>
+            </Box>
 
-        <MyEvents/>
+            <MyEvents />
         </>
     )
 }

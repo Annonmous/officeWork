@@ -12,11 +12,9 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
-import Logo from '../assets/Tickt.svg'
-
 const Navbar = () => {
 
-  const pages = ["ManageEvent", "Payment"];
+  const pages = ["Manage Event", "Payment"];
   const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 
@@ -39,15 +37,18 @@ const Navbar = () => {
   };
 
   return (
-    <AppBar position="absolute" sx={{ backgroundColor: "White", color: "black" }}>
-      <Container maxWidth="xl">
+    <AppBar position="absolute" sx={{ boxShadow: "0px 0px 0px 0px black", padding: "15px", width: "100%", backgroundColor: "white" }}>
+      <Container maxWidth="xl" disableGutters>
         <Toolbar >
-          {/* <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} /> */}
-          <img src={Logo} sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
 
-          <Box sx={{ flexGrow: { xs: 0, lg: 1, md:1 } }} />
+          <Box sx={{ display: { md: "block", xs:"none" } }}>
+            <img src="./Tickt.svg" width="100px" height="50px" alt="Logo" />
+          </Box>
+
+          <Box sx={{ flexGrow: { xs: 0, lg: 1, md: 1 } }} />
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
             <IconButton
+            sx={{color:{xs:"black"}}}
               size="large"
               aria-label="account of current user"
               aria-controls="menu-appbar"
@@ -56,7 +57,9 @@ const Navbar = () => {
               color="inherit"
             >
               <MenuIcon />
+              
             </IconButton>
+
             <Menu
               id="menu-appbar"
               anchorEl={anchorElNav}
@@ -76,32 +79,34 @@ const Navbar = () => {
               }}
             >
 
-              {pages.map((page) => (
-                <MenuItem sx={{color:"black !important"}} key={page} onClick={handleCloseNavMenu}>
-                  <Typography  textAlign="center">{page}</Typography>
-                </MenuItem>
-              ))}
+              {pages.map((page) => {
+                return (
+                  <MenuItem key={page} onClick={handleCloseNavMenu}>
+                    <Typography textAlign="center">{page}</Typography>
+                  </MenuItem>
+                )
+              })}
             </Menu>
           </Box>
 
-          {/* <AdbIcon sx={{ display: { xs: 'none', md: 'none' }, mr: 1 }} /> */}
-          <img src={Logo} sx={{ display: { xs: 'none', md: 'none' }, mr: 1 }}/>
+          <AdbIcon sx={{ display: { xs: 'none', md: 'none' }, mr: 1 }} />
+
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {pages.map((page) => (
               <Button
                 key={page}
                 onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: 'white', display: 'block' }}
+                sx={{ my: 2, color: 'black', display: 'block' }}
               >
                 {page}
               </Button>
             ))}
           </Box>
-       
+
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+                <Avatar sx={{ padding: "30px" }} alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
               </IconButton>
             </Tooltip>
             <Menu

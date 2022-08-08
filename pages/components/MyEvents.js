@@ -1,4 +1,4 @@
-import { Accordion, Button, Typography } from '@mui/material'
+import { Accordion, Button, Link, Typography } from '@mui/material'
 import { Box } from '@mui/system'
 import React from 'react'
 import LibraryAddIcon from '@mui/icons-material/LibraryAdd';
@@ -9,28 +9,39 @@ import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 const MyEvents = () => {
   return (
     <>
-    <Typography  sx={{ fontWeight: "bold", fontSize: "30px",position:"relative",top:"130px" }}>
-        My Events
-      </Typography>
+      <br />
+      <Box sx={{ display: "flex" }}>
+        <Typography sx={{ fontWeight: "bold", fontFamily: "Inter", fontSize: "32px", top: "50px" }}>
+          My Events
+        </Typography>
+        <Box flexGrow={1} />
+        <Button
+          startIcon={<CalendarMonthIcon />}
+          sx={{ verticalAlign: 'middle', color: "#001EF5", fontFamily: "Inter", fontWeight: "bold" }}
+          variant='subtitle2'>
 
-    <Box mt={11} sx={{ display: "flex", justifyContent:"flex-end" }}>
+          <Link href="#" underline="none">
+            Add New Events
+          </Link>
+        </Button>
 
-      <Button startIcon={ <CalendarMonthIcon />} sx={{ verticalAlign: 'middle', color: "#001EF5" }} variant='subtitle2'>
-       
-        <a href='#'> Add New Events</a>
-      </Button>
+        <Button
+          variant='outlined'
+          sx={{ borderColor: "white", backgroundColor: "white", color: "black", boxShadow: "0px 0.2px 0px  black" }}
+          endIcon={<SortByMenu />}>
+          Sort by
+        </Button>
 
-     <Button variant='outlined'sx={{borderColor:"white"}} endIcon={<SortByMenu/>}>Sort by</Button>
-
-    </Box>
+      </Box>
 
 
-    <Box mt={6}>
-      {/* Accordion Content */}
-     <AccordionItem/>
+      <Box mb={6}>
+        {/* Accordion Content */}
 
-     </Box>
-     </>
+        <AccordionItem />
+
+      </Box>
+    </>
   )
 }
 
